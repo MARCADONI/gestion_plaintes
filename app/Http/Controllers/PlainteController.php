@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plainte;
 use Illuminate\Http\Request;
 
 class PlainteController extends Controller
@@ -43,10 +44,11 @@ class PlainteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Plainte $plainte)
     {
-        // return view
+        return view('show', compact('plainte'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

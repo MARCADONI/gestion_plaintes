@@ -127,6 +127,7 @@
                                             <th>Objet</th>
                                             <th>Date</th>
                                             <th>Actions</th>
+                                            <th>Etat de la plainte</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -147,20 +148,38 @@
                                                                     class="bi bi-eye-fill"></i></span></a></button>
 
 
-                                                    <button type="button" class="btn btn-secondary"><a
-                                                            style="color: black"
-                                                            class=" d-flex justify-content-center"
-                                                            href=""><span class="">
-                                                                <i class="bi bi-file-text-fill"></i>
-                                                            </span></a></button>
-                                                    <button type="button" class="btn btn-primary"
-                                                        data-toggle="modal" data-target="#exampleModalCenter">
-                                                        Launch demo modal
-                                                    </button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        style="color: black" class=" d-flex justify-content-center"
+                                                        data-toggle="modal" data-target="#exampleModalCenter"><span
+                                                            class="">
+                                                            <i class="bi bi-file-text-fill"></i>
+                                                        </span></button>
+
                                                     <button type="button" class="btn btn-danger"><a
                                                             style="color:black" class=" d-flex justify-content-center"
                                                             href=""><span class=""><i
                                                                     class="bi bi-trash-fill"></i></span></a></button>
+
+                                                </td>
+                                                <td>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input"
+                                                            style="width: 34px;height:34px; background-color: orangered "
+                                                            type="checkbox" id="inlineCheckbox1" value="option1">
+                                                        <label class="form-check-label" for="inlineCheckbox1"></label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            style="width: 34px;height:34px; " id="inlineCheckbox2"
+                                                            value="option2">
+                                                        <label class="form-check-label" for="inlineCheckbox2"></label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            style="width: 34px;height:34px; background-color:green "
+                                                            id="inlineCheckbox2" value="option2">
+                                                        <label class="form-check-label" for="inlineCheckbox2"></label>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -188,17 +207,60 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Decision</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <form id="first">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    id="inlineRadio" value="option1" onchange="essai(this.value)">
+                                <label class="form-check-label" for="inlineRadio1">Recevable</label>
+                            </div>
+                            <div class="form-check form-check-inline" style="float: right">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    id="inlineRadio" value="option2" onchange="essai(this.value)">
+                                <label class="form-check-label" for="inlineRadio2">Irrecevable</label>
+                            </div>
+                        </form>
+                        <form id="second" style="display: none">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label" for="complainant_residence"> Affectation de
+                                            l'affaire
+                                        </label>
+                                        <select class="form-control  my-2" wire:model="civilite" required="required"
+                                            aria-label="Default select example">
+                                            <option selected>Selectionner l'OPJ competente</option>
+                                            <option>358</option>
+                                            <option>5888</option>
+                                            <option>842</option>
+                                            <option>588</option>
+                                            <option>884</option>
+                                            <option>111</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form id="third" style="display: none">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Raisons juridiques:</label>
+                                        <textarea class="form-control" id="message-text" cols="50" rows="5"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </div>
             </div>
@@ -210,6 +272,17 @@
     <script src="{{ asset('js/ficher_js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/ficher_js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('js/ficher_js/script.js') }}"></script>
+    <script>
+        function essai(radio) {
+            if (radio == "option1") {
+                document.getElementById('third').style.display = 'none';
+                document.getElementById('second').style.display = 'block';
+            } else if (radio == "option2") {
+                document.getElementById('second').style.display = 'none';
+                document.getElementById('third').style.display = 'block';
+            }
+        }
+    </script>
 </body>
 
 </html>

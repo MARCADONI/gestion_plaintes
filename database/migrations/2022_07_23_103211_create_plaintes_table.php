@@ -20,6 +20,7 @@ class CreatePlaintesTable extends Migration
             $table->string('numéro_rp');
             $table->string('objet');
             $table->date('date_prejudice');
+            $table->string('detaille_prejudice');
             $table->string('nom_susp')->nullable();
             $table->string('prenom_susp')->nullable();
             $table->string('pseudo_susp')->nullable();

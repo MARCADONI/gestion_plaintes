@@ -126,6 +126,7 @@
                                             <th>Date</th>
                                             <th>Statue</th>
                                             <th>Action</th>
+                                            <th>Etat de la plainte</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -138,11 +139,32 @@
                                                 <td>{{ $plainte->created_at }}</td>
                                                 <td></td>
                                                 <td>
-                                                    <a class=" d-flex justify-content-center"
-                                                        href="{{ route('plainte.show', $plainte->id) }}"><span
-                                                            style="color: rgb(10, 43, 233)" class=""><i
-                                                                class="bi bi-eye-fill"></i></a>
-
+                                                    <button type="button" class="btn btn-primary"><a
+                                                            style="color: rgb(0, 0, 0)"
+                                                            class=" d-flex justify-content-center"
+                                                            href="{{ route('plainte.show', $plainte->id) }}"><span
+                                                                class=""><i
+                                                                    class="bi bi-eye-fill"></i></span></a></button>
+                                                </td>
+                                                <td>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input"
+                                                            style="width: 34px;height:34px; background-color: orangered "
+                                                            type="checkbox" id="inlineCheckbox1" value="option1">
+                                                        <label class="form-check-label" for="inlineCheckbox1"></label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            style="width: 34px;height:34px; " id="inlineCheckbox2"
+                                                            value="option2">
+                                                        <label class="form-check-label" for="inlineCheckbox2"></label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            style="width: 34px;height:34px; background-color:green "
+                                                            id="inlineCheckbox2" value="option2">
+                                                        <label class="form-check-label" for="inlineCheckbox2"></label>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach

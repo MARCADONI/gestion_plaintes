@@ -15,6 +15,7 @@ class Plainte extends Model
         'numéro_rp',
         'objet',
         'date_prejudice',
+        'detaille_prejudice',
         'nom_susp',
         'prenom_susp',
         'pseudo_susp',

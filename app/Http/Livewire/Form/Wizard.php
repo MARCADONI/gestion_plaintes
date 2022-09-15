@@ -15,9 +15,9 @@ class Wizard extends Component
     public $cars;
     public $currentStep = 1;
     public $civilite, $nom_plaignant, $prenoms_plaignant, $date_plaignant, $lieu_plaignant;
-    public  $adresse_geo, $tel1_plaignant, $tel2_plaignant, $email, $email_confirmation;
-    public  $nom_suspect, $prenoms_suspect, $pseudo_suspect, $domicile_suspect, $contact_suspect;
-    public $objet, $date_prejudice, $description;
+    public $adresse_geo, $tel1_plaignant, $tel2_plaignant, $email, $email_confirmation;
+    public $nom_suspect, $prenoms_suspect, $pseudo_suspect, $domicile_suspect, $contact_suspect;
+    public $objet, $date_prejudice, $detaille_prejudice;
     public $successMessage = '';
 
     /**
@@ -88,7 +88,7 @@ class Wizard extends Component
         $validatedData = $this->validate([
             'objet' => ['required'],
             'date_prejudice' => ['required', 'date'],
-            'description' => ['required'],
+            'detaille_prejudice' => ['required'],
         ]);
 
         $plaignant = Plaignant::create([
@@ -117,6 +117,7 @@ class Wizard extends Component
             'numéro_rp' => numrp(),
             'objet' => $this->objet,
             'date_prejudice' => $this->date_prejudice,
+            'detaille_prejudice' => $this->detaille_prejudice,
             'nom_susp' => $this->nom_suspect,
             'prenom_susp' => $this->prenoms_suspect,
             'pseudo_susp' => $this->pseudo_suspect,
@@ -124,7 +125,7 @@ class Wizard extends Component
             'contact_susp' => $this->contact_suspect,
         ]);
 
-        $this->successMessage = 'Votre plainte a été enregistrée avec succès';
+        $this->successMessage = 'Votre plainte a été enregistrée avec succès vous devez le confirmer avec l\'email que vous allez';
 
         $this->clearForm();
 
@@ -165,6 +166,6 @@ class Wizard extends Component
         $this->contact_suspect = '';
         $this->objet = '';
         $this->date_prejudice = '';
-        $this->description = '';
+        $this->detaille_prejudice = '';
     }
 }

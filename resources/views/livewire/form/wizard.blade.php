@@ -316,9 +316,9 @@
                         <label class="control-label" for="tbmessage"><span class="field-name">Description du
                                 préjudice
                             </span><strong>(obligatoire)</strong></label>
-                        <textarea class="form-control my-2" wire:model="description" id="tbmessage" cols="250" rows="15"
+                        <textarea class="form-control my-2" wire:model="detaille_prejudice" id="tbmessage" cols="250" rows="15"
                             required="required" placeholder="Décriver votre plainte dans les détailles"></textarea>
-                        @error('description')
+                        @error('detaille_prejudice')
                             <span class="error">{{ $message }}</span>
                         @enderror
                     </div>

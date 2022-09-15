@@ -18,9 +18,10 @@
             <div class="sidebar-heading primary-text fw-bold  border-bottom"><i
                     class="fas fa-user-secret me-2"></i>Espace Plaignant</div>
             <div class="list-group list-group-flush my-3">
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text"><i
+                <a href="/" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-home me-2"></i>Acceuil</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="{{ route('plainte.create') }}"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-clipboard-list me-2"></i>>Nouvelle plainte</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-chart-line me-2"></i>Statistique</a>

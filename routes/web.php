@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactConntroller;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MyController::class, 'take1'])->name('acceuil');
 Route::get('contacts', [ContactConntroller::class, 'create'])->name('contacts');
 Route::post('contacts', [ContactConntroller::class, 'store'])->name('contacts.store');
+
+Auth::routes(['verify' => true]);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/dashboard', function () {
